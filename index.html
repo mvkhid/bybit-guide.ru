@@ -76,7 +76,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 /* === Hero === */
 .hero {
-  padding: 72px 0 56px;
+  padding: 84px 0 64px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -119,12 +119,12 @@ button { font-family: inherit; cursor: pointer; border: none; }
 }
 
 .hero h1 {
-  font-size: clamp(28px, 5vw, 44px);
+  font-size: clamp(30px, 5.5vw, 48px);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.03em;
-  margin-bottom: 18px;
-  max-width: 640px;
+  margin-bottom: 20px;
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -132,11 +132,11 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .hero h1 span { color: var(--accent); }
 
 .hero-sub {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-soft);
   line-height: 1.6;
-  max-width: 500px;
-  margin: 0 auto 28px;
+  max-width: 540px;
+  margin: 0 auto 32px;
 }
 
 .hero-btn {
@@ -191,12 +191,12 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 /* === Section === */
 .section {
-  padding: 60px 0;
+  padding: 72px 0;
   border-top: 1px solid var(--border);
 }
 
 @media (max-width: 600px) {
-  .section { padding: 44px 0; }
+  .section { padding: 48px 0; }
 }
 
 .section-label {
@@ -211,11 +211,11 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 .section-title {
   text-align: center;
-  font-size: clamp(22px, 3.5vw, 32px);
+  font-size: clamp(24px, 4vw, 36px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.02em;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 
 /* === Problem cards === */
@@ -430,7 +430,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 }
 
 .tariff-price {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -438,7 +438,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 }
 
 .tariff-price span {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -1113,10 +1113,10 @@ footer {
       <div class="inside-item">
         <button class="inside-q" onclick="toggleAccordion(this)">
           <span class="inside-num">03</span>
-          <h3>Пополнение и использование</h3>
+          <h3>Оплата сервисов и Apple Pay</h3>
           <span class="inside-icon">+</span>
         </button>
-        <div class="inside-a-wrap"><div class="inside-a">Как пополнить карту через USDT и начать оплачивать подписки и покупки за рубежом. Какую сеть выбрать, на что обратить внимание.</div></div>
+        <div class="inside-a-wrap"><div class="inside-a">Как привязать карту к Apple Pay, оплачивать иностранные сервисы и совершать покупки за рубежом. Какую страну выбрать для поддержки бесконтактной оплаты.</div></div>
       </div>
       <div class="inside-item">
         <button class="inside-q" onclick="toggleAccordion(this)">
@@ -1322,6 +1322,7 @@ footer {
         <div class="foot-h">Контакты</div>
         <ul class="foot-list">
           <li><a href="https://t.me/mvkhid">Telegram автора</a></li>
+          <li><a href="mailto:mvkhid.info@gmail.com">mvkhid.info@gmail.com</a></li>
         </ul>
       </div>
     </div>
