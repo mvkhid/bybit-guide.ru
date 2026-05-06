@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bybit Card — Полный гайд по оплате зарубежных сервисов</title>
+<meta name="description" content="Пошаговый гайд: как получить международную карту Bybit и оплачивать ChatGPT, Spotify, Notion из России.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F7A600'/><text x='16' y='22' font-family='sans-serif' font-size='20' font-weight='bold' fill='white' text-anchor='middle'>B</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #111111;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #222222;
+  --text: #f0f0f0;
+  --text-soft: #a0a0a0;
+  --text-dim: #666666;
+  --accent: #F7A600;
+  --accent-hover: #E09200;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+.wrap {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* === Header === */
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.header-cta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* === Hero === */
+.hero {
+  padding: 72px 0 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(247,166,0,0.12) 0%, rgba(247,166,0,0) 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(247,166,0,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 64px 0 48px; }
+}
+
+.hero-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero h1 span { color: var(--accent); }
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 28px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: #111;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 100px;
+  transition: background 0.2s;
+}
+
+.hero-btn:hover { background: var(--accent-hover); }
+
+/* === Note === */
+.note-section {
+  padding: 0 0 64px;
+}
+
+.note-card {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.55;
+  text-align: center;
+}
+
+.note-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 1px;
+}
+
+/* === Section === */
+.section {
+  padding: 60px 0;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  .section { padding: 44px 0; }
+}
+
+.section-label {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+
+/* === Problem cards === */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 700px) {
+  .problem-grid { grid-template-columns: 1fr; }
+}
+
+.problem-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.problem-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.problem-card p {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+/* === For who === */
+.for-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+@media (max-width: 700px) {
+  .for-grid { grid-template-columns: 1fr; }
+}
+
+.for-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.for-card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.for-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.for-card p {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+/* === What inside === */
+.inside-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.inside-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.inside-item:last-child { border-bottom: none; }
+
+.inside-q {
+  display: grid;
+  grid-template-columns: 40px 1fr 24px;
+  gap: 16px;
+  padding: 24px 0;
+  cursor: pointer;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text);
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+  transition: color 0.2s;
+}
+
+.inside-q:hover { color: var(--accent); }
+
+.inside-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.inside-q h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.inside-icon {
+  font-size: 20px;
+  color: var(--text-dim);
+  transition: transform 0.3s;
+  justify-self: end;
+}
+
+.inside-item.open .inside-icon { transform: rotate(45deg); }
+
+.inside-a-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.inside-item.open .inside-a-wrap {
+  opacity: 1;
+}
+
+.inside-a {
+  padding: 0 0 24px 56px;
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* === Tariffs === */
+.tariff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto 0;
+}
+
+@media (max-width: 700px) {
+  .tariff-grid { grid-template-columns: 1fr; }
+}
+
+.tariff-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+}
+
+.tariff-pro {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.tariff-ribbon {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #111;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.tariff-name {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  margin-top: 8px;
+}
+
+.tariff-desc {
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-bottom: 24px;
+  min-height: 42px;
+}
+
+.tariff-old-price {
+  font-size: 18px;
+  color: var(--text-dim);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.tariff-price {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.tariff-price span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.tariff-features {
+  list-style: none;
+  text-align: left;
+  margin: 24px 0;
+  flex: 1;
+}
+
+.tariff-features li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-soft);
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+
+.tariff-features li:last-child { border-bottom: none; }
+
+.tariff-features li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.tariff-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 100px;
+  transition: all 0.2s;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+
+.tariff-btn:hover:not([aria-disabled="true"]) {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.tariff-btn-pro {
+  background: var(--accent);
+  color: #111;
+  border-color: var(--accent);
+}
+
+.tariff-btn-pro:hover:not([aria-disabled="true"]) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.tariff-btn[aria-disabled="true"] {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* === Tariff bottom === */
+.tariff-bottom {
+  max-width: 700px;
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.tariff-bottom .checkbox-wrap label {
+  max-width: 560px;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: left;
+}
+
+.tariff-bottom .checkbox-text {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.pay-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.checkbox-wrap label {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+  cursor: pointer;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+
+.checkbox-wrap label:hover { background: var(--bg-card-hover); }
+
+.checkbox-wrap input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-strong);
+  border-radius: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  margin-top: 1px;
+  background: transparent;
+  position: relative;
+}
+
+.checkbox-wrap input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.checkbox-wrap input[type="checkbox"]:checked::after {
+  content: '✓';
+  color: #111;
+  font-weight: 800;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkbox-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.checkbox-text strong {
+  color: var(--text);
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.checkbox-text ul { margin: 6px 0 0 16px; }
+.checkbox-text li { margin-bottom: 2px; font-size: 12px; }
+
+/* === FAQ === */
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+}
+
+.faq-item { border-bottom: 1px solid var(--border); }
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  background: none;
+  width: 100%;
+  text-align: left;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.4;
+  border: none;
+  transition: color 0.2s;
+}
+
+.faq-q:hover { color: var(--accent); }
+
+.faq-icon {
+  font-size: 20px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-a-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.faq-item.open .faq-a-wrap {
+  opacity: 1;
+}
+
+.faq-a {
+  padding: 0 0 20px;
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* === CTA bottom === */
+.section-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-glow::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(247,166,0,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.section-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(247,166,0,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-bottom {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+/* === Scroll reveal animation === */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+
+/* === After purchase === */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 700px) {
+  .result-grid { grid-template-columns: 1fr; }
+}
+
+.result-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.result-card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 16px;
+  font-weight: 700;
+}
+
+.result-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.result-card p {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+/* === Proof transactions === */
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .proof-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .proof-grid { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; }
+}
+
+.proof-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-align: center;
+  transition: box-shadow 0.6s ease, border-color 0.6s ease;
+  transition-delay: 0s !important;
+}
+
+.proof-card:hover {
+  box-shadow: 0 8px 28px rgba(247, 166, 0, 0.18);
+  border-color: rgba(247, 166, 0, 0.35);
+}
+
+.proof-card.glow {
+  box-shadow: 0 0 20px rgba(247, 166, 0, 0.2), 0 0 40px rgba(247, 166, 0, 0.08);
+  border-color: rgba(247, 166, 0, 0.4);
+}
+
+.proof-card.glow .proof-badge {
+  background: rgba(247,166,0,0.25);
+}
+
+.proof-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  padding: 8px 8px 0 8px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+  .proof-card img { height: 340px; }
+}
+
+.proof-info {
+  padding: 16px;
+}
+
+.proof-place {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.proof-detail {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.proof-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(247,166,0,0.12);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+}
+
+.cta-bottom p {
+  font-size: 15px;
+  color: var(--text-soft);
+  margin-bottom: 20px;
+}
+
+.cta-bottom a {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 1px solid var(--border-strong);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.cta-bottom a:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* === Footer === */
+footer {
+  padding: 40px 0 28px;
+  border-top: 1px solid var(--border);
+}
+
+.foot-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 600px) {
+  .foot-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+.foot-brand {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.foot-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.foot-seller {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.foot-seller strong {
+  color: var(--text-soft);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.foot-h {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.foot-list { list-style: none; }
+.foot-list li { padding: 3px 0; }
+.foot-list a { font-size: 13px; color: var(--text-soft); transition: color 0.2s; }
+.foot-list a:hover { color: var(--accent); }
+
+.foot-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* === Modal === */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 36px;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .modal { padding: 24px 20px; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.modal h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 18px 0 6px;
+}
+
+.modal p, .modal li {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-soft);
+  margin-bottom: 6px;
+}
+
+.modal ul { padding-left: 18px; margin-bottom: 8px; }
+.modal strong { color: var(--text); font-weight: 600; }
+
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(108996480, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108996480" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="wrap header-inner">
+    <div class="logo">Bybit Card</div>
+    <a href="#buy" class="header-cta">Получить гайд ↓</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-label">пошаговый гайд</div>
+    <h1>Карта Bybit.<br><span>Оплачивай</span> зарубежные сервисы из России</h1>
+    <p class="hero-sub">Как получить международную карту Bybit MasterCard,<br>вернуть себе Apple Pay, оплату iCloud, ChatGPT, Spotify, Notion<br>— напрямую, своей картой.</p>
+    <a href="#buy" class="hero-btn">Перейти к тарифам</a>
+  </div>
+</div>
+
+<!-- NOTE -->
+<div class="note-section">
+  <div class="wrap">
+    <div class="note-card">
+      <span class="note-icon">!</span>
+      <span>Гайд для тех, кто уже знаком с криптовалютой — понимает что такое USDT и как пополнять кошелёк.</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOR WHO -->
+<div class="section section-glow">
+  <div class="wrap">
+    <div class="section-label">Кому подойдёт</div>
+    <h2 class="section-title">Для кого этот гайд</h2>
+
+    <div class="for-grid">
+      <div class="for-card reveal reveal-delay-1">
+        <div class="for-card-icon">💻</div>
+        <h3>Фрилансерам и айтишникам</h3>
+        <p>Кто работает с иностранными платформами и устал от костылей с оплатой подписок.</p>
+      </div>
+      <div class="for-card reveal reveal-delay-2">
+        <div class="for-card-icon">🛒</div>
+        <h3>Предпринимателям</h3>
+        <p>Кому нужна рабочая карта для оплаты SaaS, рекламы, хостинга и инструментов.</p>
+      </div>
+      <div class="for-card reveal reveal-delay-3">
+        <div class="for-card-icon">🔑</div>
+        <h3>Устал от посредников</h3>
+        <p>Свой аккаунт ChatGPT, Spotify, YouTube Premium — без переплат и чужих паролей.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-label">Проблема</div>
+    <h2 class="section-title">Почему из России сложно оплатить иностранные подписки</h2>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3>Карты не принимают</h3>
+        <p>Visa и Mastercard российских банков отклоняются на любых иностранных платформах с 2022 года.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Apple Pay отключён</h3>
+        <p>Бесконтактная оплата через iPhone не работает. iCloud и Apple ID — не оплатить напрямую.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Друзья за границей</h3>
+        <p>Просить кого-то каждый раз — неудобно. То карта истекла, то что-то отвалилось.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Посредники</h3>
+        <p>Переплата в 2–3 раза. Аккаунт могут забрать в любой момент. Никаких гарантий.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT INSIDE -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-label">Содержание</div>
+    <h2 class="section-title">Что внутри гайда</h2>
+
+    <div class="inside-list">
+      <div class="inside-item">
+        <button class="inside-q" onclick="toggleAccordion(this)">
+          <span class="inside-num">01</span>
+          <h3>Регистрация и верификация</h3>
+          <span class="inside-icon">+</span>
+        </button>
+        <div class="inside-a-wrap"><div class="inside-a">Какую страну выбрать, какой документ загрузить, как пройти KYC с первого раза. Разбираем частые ошибки и как их избежать.</div></div>
+      </div>
+      <div class="inside-item">
+        <button class="inside-q" onclick="toggleAccordion(this)">
+          <span class="inside-num">02</span>
+          <h3>Заявка на карту</h3>
+          <span class="inside-icon">+</span>
+        </button>
+        <div class="inside-a-wrap"><div class="inside-a">Виртуальная карта активна сразу после одобрения. Физическая — по желанию. Все нюансы заявки и что делать если не одобрили.</div></div>
+      </div>
+      <div class="inside-item">
+        <button class="inside-q" onclick="toggleAccordion(this)">
+          <span class="inside-num">03</span>
+          <h3>Пополнение и использование</h3>
+          <span class="inside-icon">+</span>
+        </button>
+        <div class="inside-a-wrap"><div class="inside-a">Как пополнить карту через USDT и начать оплачивать подписки и покупки за рубежом. Какую сеть выбрать, на что обратить внимание.</div></div>
+      </div>
+      <div class="inside-item">
+        <button class="inside-q" onclick="toggleAccordion(this)">
+          <span class="inside-num">04</span>
+          <h3>Что делать при отказе</h3>
+          <span class="inside-icon">+</span>
+        </button>
+        <div class="inside-a-wrap"><div class="inside-a">Все типичные причины отказов на каждом этапе — верификация, заявка, пополнение — и конкретные решения для каждого случая.</div></div>
+      </div>
+      <div class="inside-item">
+        <button class="inside-q" onclick="toggleAccordion(this)">
+          <span class="inside-num">05</span>
+          <h3>Безопасность и лайфхаки</h3>
+          <span class="inside-icon">+</span>
+        </button>
+        <div class="inside-a-wrap"><div class="inside-a">VPN, выбор сети USDT, номер телефона, уведомление ФНС — мелочи, на которых обычно теряют часы. У тебя уйдут секунды.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-label">Результат</div>
+    <h2 class="section-title">Что ты получишь после покупки</h2>
+
+    <div class="result-grid">
+      <div class="result-card reveal reveal-delay-1">
+        <div class="result-card-icon">📄</div>
+        <h3>Доступ к гайду</h3>
+        <p>Ссылка на Notion-страницу с полным гайдом. Удобно читать с любого устройства, доступ навсегда.</p>
+      </div>
+      <div class="result-card reveal reveal-delay-2">
+        <div class="result-card-icon">📱</div>
+        <h3>Apple Pay снова работает</h3>
+        <p>Привяжи карту Bybit к iPhone и плати бесконтактно за границей — как раньше, до 2022 года.</p>
+      </div>
+      <div class="result-card reveal reveal-delay-3">
+        <div class="result-card-icon">🛡</div>
+        <h3>Разбор отказов и ошибок</h3>
+        <p>Не прошла верификация? Отклонили заявку? Внутри — готовые решения для каждого случая.</p>
+      </div>
+      <div class="result-card reveal reveal-delay-1">
+        <div class="result-card-icon">💬</div>
+        <h3>Поддержка в Telegram</h3>
+        <p>На тарифе «Пройдём вместе» — 7 дней личной поддержки на любом этапе.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-label">Apple Pay работает</div>
+    <h2 class="section-title">Реальные оплаты картой Bybit</h2>
+
+    <div class="proof-grid">
+      <div class="proof-card reveal">
+        <img src="spain.jpg" alt="Оплата в Испании" loading="lazy">
+        <div class="proof-info">
+          <div class="proof-place">🇪🇸 Испания</div>
+          <div class="proof-detail">9,50 EUR · ресторан</div>
+          <div class="proof-badge">Apple Pay</div>
+        </div>
+      </div>
+      <div class="proof-card reveal">
+        <img src="uae2.jpg" alt="Оплата в ОАЭ" loading="lazy">
+        <div class="proof-info">
+          <div class="proof-place">🇦🇪 ОАЭ</div>
+          <div class="proof-detail">22,00 AED · кофейня</div>
+          <div class="proof-badge">Apple Pay</div>
+        </div>
+      </div>
+      <div class="proof-card reveal">
+        <img src="ksa.jpg" alt="Оплата в Саудовской Аравии" loading="lazy">
+        <div class="proof-info">
+          <div class="proof-place">🇸🇦 Саудовская Аравия</div>
+          <div class="proof-detail">62,00 SAR · ресторан</div>
+          <div class="proof-badge">Apple Pay</div>
+        </div>
+      </div>
+      <div class="proof-card reveal">
+        <img src="japan.jpg" alt="Оплата в Японии" loading="lazy">
+        <div class="proof-info">
+          <div class="proof-place">🇯🇵 Япония</div>
+          <div class="proof-detail">JPY · покупка</div>
+          <div class="proof-badge">Apple Pay</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TARIFFS -->
+<div class="section section-glow" id="buy">
+  <div class="wrap">
+    <div class="section-label">Тарифы</div>
+    <h2 class="section-title">Выберите тариф</h2>
+
+    <div class="tariff-grid">
+      <div class="tariff-card">
+        <div class="tariff-name">Сам разберусь</div>
+        <div class="tariff-desc">Полный гайд — всё для самостоятельного прохождения</div>
+        <div class="tariff-price">890<span>₽</span></div>
+        <ul class="tariff-features">
+          <li>Полный гайд (5 этапов)</li>
+          <li>Раздел безопасности</li>
+          <li>Решения для отказов</li>
+        </ul>
+        <a href="#" class="tariff-btn" onclick="handleBuy(event, 890)">Купить</a>
+      </div>
+
+      <div class="tariff-card tariff-pro">
+        <div class="tariff-ribbon">Рекомендуем</div>
+        <div class="tariff-name">Пройдём вместе</div>
+        <div class="tariff-desc">Гайд + 7 дней личной поддержки автора</div>
+        <div class="tariff-price">1390<span>₽</span></div>
+        <ul class="tariff-features">
+          <li>Всё из «Сам разберусь»</li>
+          <li><strong>Обратная связь в Telegram</strong></li>
+          <li><strong>Ответы 7 дней</strong> после покупки</li>
+        </ul>
+        <a href="#" class="tariff-btn tariff-btn-pro" onclick="handleBuy(event, 1390)">Купить</a>
+      </div>
+    </div>
+
+    <div class="tariff-bottom">
+      <div class="checkbox-wrap">
+        <label>
+          <input type="checkbox" id="agree-checkbox">
+          <span class="checkbox-text">
+            Нажимая «Купить», я подтверждаю, что понимаю риски, связанные с криптовалютой, и соглашаюсь с <a href="#" onclick="openModal('offer'); return false;" style="color: var(--accent); text-decoration: underline;">офертой</a>
+          </span>
+        </label>
+      </div>
+      <div class="pay-note">Оплата через @Tribute в Telegram · Карта РФ, СНГ, СБП, криптовалюта</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Ответы на вопросы</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Сколько времени займёт оформление карты? <span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a">В среднем около 30 минут на всё — от регистрации до получения виртуальной карты. Если уже есть аккаунт Bybit — ещё быстрее.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Это законно? <span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a">Получение и использование карты Bybit не запрещено. Вы сами отвечаете за соблюдение законодательства.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">А если карту не одобрят? <span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a">В гайде есть подробный разбор возможных причин и пошаговые решения для каждого случая.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Можно вернуть деньги? <span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a">Нет — это инфопродукт, возврат не предусмотрен (ст. 26.1 ЗоЗПП).</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">В каком формате гайд? <span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a">Онлайн-страница в Notion. Удобно читать с любого устройства, доступ остаётся навсегда.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BOTTOM -->
+<div class="cta-bottom">
+  <div class="wrap">
+    <p>Остались вопросы? Напиши — отвечу лично.</p>
+    <a href="https://t.me/mvkhid">Написать в Telegram</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Bybit Card / Гайд</div>
+        <p class="foot-desc">Информационный продукт. Не является финансовой или юридической консультацией.</p>
+        <div class="foot-seller">
+          <strong>Продавец</strong>
+          Самозанятый Магомедгаджиев А.М.<br>
+          Платёжный агент: @Tribute
+        </div>
+      </div>
+      <div>
+        <div class="foot-h">Документы</div>
+        <ul class="foot-list">
+          <li><a href="#" onclick="openModal('offer'); return false;">Публичная оферта</a></li>
+          <li><a href="#" onclick="openModal('privacy'); return false;">Политика обработки данных</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-h">Контакты</div>
+        <ul class="foot-list">
+          <li><a href="https://t.me/mvkhid">Telegram автора</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026</div>
+      <div>Bybit® — товарный знак Bybit Fintech Limited. Данный сайт не связан с Bybit и не является их официальным ресурсом.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-offer">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('offer')">×</button>
+    <div class="modal-label">Документ</div>
+    <h2 class="modal-title">Оферта о продаже инфопродукта</h2>
+    <h3>1. Общие положения</h3>
+    <p>Настоящий документ — публичная оферта Автора. Акцептом считается оплата продукта.</p>
+    <h3>2. Предмет договора</h3>
+    <p>Доступ к гайду «Bybit Card» в электронном виде. Продукт носит <strong>исключительно информационный характер</strong>.</p>
+    <h3>3. Оплата</h3>
+    <p>100% предоплата. Доступ в течение 24 часов.</p>
+    <h3>4. Ответственность</h3>
+    <p>Автор не несёт ответственности за действия третьих лиц, изменения условий сервисов, финансовые потери и блокировки. Ответственность ограничена стоимостью продукта.</p>
+    <h3>5. Возврат</h3>
+    <p>После получения доступа возврат не производится (ст. 26.1 ЗоЗПП).</p>
+    <h3>6. Авторские права</h3>
+    <p>Копирование и перепродажа запрещены.</p>
+    <h3>7. Споры</h3>
+    <p>Решаются переговорами; при невозможности — по законодательству РФ.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-privacy">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('privacy')">×</button>
+    <div class="modal-label">Документ</div>
+    <h2 class="modal-title">Политика обработки данных</h2>
+    <h3>Данные</h3>
+    <p>Email, имя (опционально), реквизиты платежа.</p>
+    <h3>Цели</h3>
+    <p>Отправка доступа, обновления, обратная связь.</p>
+    <h3>Третьи лица</h3>
+    <p>Только платёжные системы и сервисы рассылки.</p>
+    <h3>Удаление</h3>
+    <p>По запросу на контактный email.</p>
+  </div>
+</div>
+
+<script>
+// === Smooth accordion ===
+function toggleAccordion(btn) {
+  const item = btn.parentElement;
+  const wrap = item.querySelector('.inside-a-wrap');
+  const inner = wrap.querySelector('.inside-a');
+
+  if (item.classList.contains('open')) {
+    wrap.style.maxHeight = '0px';
+    wrap.style.opacity = '0';
+    item.classList.remove('open');
+  } else {
+    // close siblings
+    item.parentElement.querySelectorAll('.inside-item.open').forEach(other => {
+      const otherWrap = other.querySelector('.inside-a-wrap');
+      otherWrap.style.maxHeight = '0px';
+      otherWrap.style.opacity = '0';
+      other.classList.remove('open');
+    });
+    item.classList.add('open');
+    wrap.style.maxHeight = inner.scrollHeight + 'px';
+    wrap.style.opacity = '1';
+  }
+}
+
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const wrap = item.querySelector('.faq-a-wrap');
+  const inner = wrap.querySelector('.faq-a');
+
+  if (item.classList.contains('open')) {
+    wrap.style.maxHeight = '0px';
+    wrap.style.opacity = '0';
+    item.classList.remove('open');
+  } else {
+    item.classList.add('open');
+    wrap.style.maxHeight = inner.scrollHeight + 'px';
+    wrap.style.opacity = '1';
+  }
+}
+
+// === Checkbox + Buy ===
+const checkbox = document.getElementById('agree-checkbox');
+const tariffBtns = document.querySelectorAll('.tariff-btn');
+
+function updateBtns() {
+  tariffBtns.forEach(btn => {
+    btn.setAttribute('aria-disabled', checkbox.checked ? 'false' : 'true');
+  });
+}
+
+checkbox.addEventListener('change', updateBtns);
+updateBtns();
+
+// === Referral system ===
+function getRef() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('ref') || '';
+}
+
+function handleBuy(e, amount) {
+  e.preventDefault();
+  if (!checkbox.checked) {
+    alert('Пожалуйста, отметьте согласие с условиями');
+    checkbox.scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+  const links = { 890: '#', 1390: '#' };
+  let link = links[amount];
+  if (link && link !== '#') {
+    // Добавляем реферала в ссылку если есть
+    const ref = getRef();
+    if (ref) {
+      const separator = link.includes('?') ? '&' : '?';
+      link += separator + 'ref=' + encodeURIComponent(ref);
+    }
+    window.open(link, '_blank');
+  } else {
+    const ref = getRef();
+    const refInfo = ref ? ' (реферал: ' + ref + ')' : '';
+    alert('Ссылка на оплату ещё не настроена' + refInfo);
+  }
+}
+
+function openModal(n) {
+  document.getElementById('modal-' + n).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(n) {
+  document.getElementById('modal-' + n).classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => {
+    if (e.target === m) { m.classList.remove('active'); document.body.style.overflow = ''; }
+  });
+});
+
+// === Scroll reveal ===
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// === Auto-glow cycle for proof cards ===
+const proofCards = document.querySelectorAll('.proof-card');
+let glowIndex = 0;
+
+setInterval(() => {
+  proofCards.forEach(card => card.classList.remove('glow'));
+  if (proofCards.length > 0) {
+    proofCards[glowIndex].classList.add('glow');
+    glowIndex = (glowIndex + 1) % proofCards.length;
+  }
+}, 3000);
+</script>
+
+</body>
+</html>
